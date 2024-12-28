@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nextjsbasicapp
-          image: devacrms.azurecr.io/nextjsbasicapp:latest
+          image: nvonron/nextjsbasicapp:latest
           ports:
             - containerPort: 3000
           env:
