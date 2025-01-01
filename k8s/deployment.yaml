@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nextjsbasicapp
-  namespace: default
+  labels:
+    app: nextjsbasicapp
 spec:
   replicas: 2
   selector:
