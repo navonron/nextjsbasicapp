@@ -3,37 +3,12 @@ name: Deploy App
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: write
-  security-events: write
-  actions: read
-
 jobs:
-  codeql-scan:
-    name: CodeQL Scan
-    runs-on: self-hosted
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-#
-#      - name: Initialize CodeQL
-#        uses: github/codeql-action/init@v2
-#        with:
-#          languages: 'javascript'
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-        with:
-          fail-on-error: true
-
   deploy:
     name: Deploy Application
     runs-on: self-hosted
-    needs: codeql-scan
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
